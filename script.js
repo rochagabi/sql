@@ -5,11 +5,10 @@ const inputEnviar = document.getElementById('enviar');
 
 // Função para enviar dados mockados e criar uma nova fruta
 async function enviar() {
-    const mockData = {
-        id: 123,  // ID mockado
+    const mockData = { 
         nome: 'Banana',
         cor: 'Amarela',
-        peso: 120 // Peso em gramas
+        peso_medio: 120 // Peso em gramas
     };
 
     try {

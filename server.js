@@ -33,6 +33,7 @@ app.get('/frutas/:id', (req, res) => {
     try {
         connection.query(sql, [id], (error, results) => {
             if (error) {
+                console.log('erro ', error) 
                 return res.status(500).send({ error: error.sqlMessage });
             }
             if (results.length === 0) {
@@ -47,14 +48,18 @@ app.get('/frutas/:id', (req, res) => {
 
 // Rota para criar uma nova fruta
 app.post('/frutas', (req, res) => {
-    const { id, nome, cor, peso } = req.body;
-    const sql = 'INSERT INTO frutas (id, nome, cor, peso) VALUES (?, ?, ?, ?)';
+    const { id, nome, cor, peso_medio } = req.body;
+    const sql = 'INSERT INTO frutas (nome, cor, peso_medio) VALUES (?, ?, ?)';
     try {
-        connection.query(sql, [id, nome, cor, peso], (error, results) => {
+        connection.query(sql, [id, nome, cor, peso_medio], (error, results) => {
+
+            console.error('results executar query:', results);
             if (error) {
+                console.error('Erro ao executar query:', error);
+                console.error('results executar query:', results);
                 return res.status(500).send({ error: error.sqlMessage });
             }
-            res.status(201).send({ message: 'Fruta criada com sucesso', fruta: { id, nome, cor, peso } });
+            res.status(201).send({ message: 'Fruta criada com sucesso', fruta: { id, nome, cor, peso_medio } });
         });
     } catch (error) {
         res.status(500).send({ error: "Ocorreu um erro inesperado ao criar a fruta" });
