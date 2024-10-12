@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Frutas</title>
+</head>
+
+<body>
+
+    <label for="id_fruta">Insira o id da fruta que deseja buscar ou criar</label>
+    <input id="id_fruta" type="text" placeholder="Insira uma fruta">
+    <br><br>
+    <label>Selecione a opção que deseja executar</label>
+    <select>
+        <option value="buscar" id="opt1">Buscar</option>
+        <option value="criar" id="opt2">Criar</option>
+    </select>
+    <br><br>
+    <div id="fruta_result"></div>
+    <input type="button" value="Enviar" id="enviar">
+
+    <script src="script.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</body>
+
+</html>
